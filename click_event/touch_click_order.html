@@ -40,25 +40,50 @@
   <div class="body">
     <div class="inner-mask">INNER MASK</div>
   </div>
-  <div class="mask">MASK</div>
 </body>
 <script>
-  var mask = document.querySelector('.mask')
   var b = document.querySelector('.body')
   var innerMask = document.querySelector('.inner-mask')
+  
+  // document的点击事件
+  document.addEventListener('touchstart', function() {
+    console.log('touch start document')
+  })
+
+  document.addEventListener('touchend', function() {
+    console.log('touch end document')
+  })
+
+  document.addEventListener('click', function() {
+    console.log('click document')
+  })
+
+  // .body 的点击事件
+  b.addEventListener('touchstart', function() {
+    console.log('touch start body div')
+  })
+
+  b.addEventListener('touchend', function() {
+    console.log('touch end body div')
+  })
+
+  b.addEventListener('click', function() {
+    console.log('click body div')
+  })
+
+
   // inner-mask的点击事件
   innerMask.addEventListener('touchstart', function() {
     console.log('touch start inner mask')
-    b.removeChild(innerMask)
   })
 
   innerMask.addEventListener('touchend', function() {
     console.log('touch end inner mask')
   })
+
+  innerMask.addEventListener('click', function() {
+    console.log('click inner mask')
+  })
   
-  // mask的点击事件
-  mask.addEventListener('click', function(e) {
-    console.log('click mask')
-  }) 
 </script>
 </html>
