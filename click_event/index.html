@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    html, body {
+      height: 100%;
+    }
+    .body {
+      height: 100%;
+      width: 100%;
+    }
+    .inner-mask {
+      background-color: lightcoral;
+      opacity: 0.5;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 99;
+
+    }
+    .mask {
+      text-align: center;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 24;
+      background-color: lightblue;
+      opacity: 0.5;
+    }
+  </style>
+</head>
+<body>
+  <div class="body">
+    <div class="inner-mask">INNER MASK</div>
+  </div>
+  <div class="mask">MASK</div>
+</body>
+<script>
+  var mask = document.querySelector('.mask')
+  var b = document.querySelector('.body')
+  var innerMask = document.querySelector('.inner-mask')
+  // inner-mask的点击事件
+  innerMask.addEventListener('touchstart', function() {
+    console.log('touch start inner mask')
+    b.removeChild(innerMask)
+  })
+
+  innerMask.addEventListener('touchend', function() {
+    console.log('touch end inner mask')
+  })
+  
+  // mask的点击事件
+  mask.addEventListener('click', function(e) {
+    console.log('click mask')
+  }) 
+</script>
+</html>
